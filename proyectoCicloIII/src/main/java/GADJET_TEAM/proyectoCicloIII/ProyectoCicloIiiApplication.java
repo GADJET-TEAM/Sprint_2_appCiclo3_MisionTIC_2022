@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.*;
 import clasesModeladas.Empresa;
+import clasesModeladas.MovimientoDinero;
 
 //@SpringBootApplication
 public class ProyectoCicloIiiApplication {
@@ -143,6 +144,61 @@ public class ProyectoCicloIiiApplication {
 		System.out.println((3) + ") " + "Nombre: " + listaEmpleado.get(2).getName() + ", Email: " + listaEmpleado.get(2).getEmail() + ", Empresa: " + listaEmpleado.get(2).getEnterprise() + ", Rol: " + listaEmpleado.get(2).getRole());
 		System.out.println("----------------------------------------------------------------------------------------------------------------------");
 		;
+// Simulacion de CRUD en un arrayList para la clase MovimientoDinero
+
+		// ArrayList
+		ArrayList<MovimientoDinero> listaMovDinero = new ArrayList<>();
+
+		// Creacion de las instancias de listaMovDinero en el ArrayList (Create)
+
+		System.out.println("CREACION DE INSTANCIAS DE LA CLASE MovimientoDinero");
+		System.out.println();
+
+		listaMovDinero.add(new MovimientoDinero(1, "compra al proveedor de empanadas, ", 500000.0, listaEmpleado.get(2).getName(), MovimientoDinero.typeTran.Ingreso));
+		listaMovDinero.add(new MovimientoDinero(2, "pago recibo agua, ", -30000.0, listaEmpleado.get(3).getName(), MovimientoDinero.typeTran.Egreso));
+		listaMovDinero.add(new MovimientoDinero(3, "pago recibo luz, ", -90000.0, listaEmpleado.get(3).getName(), MovimientoDinero.typeTran.Egreso));
+		listaMovDinero.add(new MovimientoDinero(4, "ganancias venta empanadas, ", 400000.0, listaEmpleado.get(1).getName(), MovimientoDinero.typeTran.Ingreso));
+		listaMovDinero.add(new MovimientoDinero(5, "pago recibo internet, ", -90000.0, listaEmpleado.get(3).getName(), MovimientoDinero.typeTran.Egreso));
+
+		System.out.println("Numero de Movimientos de la lista: " + listaMovDinero.size());
+		System.out.println("Informacion de los movimientos");
+
+		for (int i = 0; i < listaMovDinero.size(); i++) {
+
+			System.out.println(listaMovDinero.get(i).getId() + ") " + "Concepto: " + listaMovDinero.get(i).getConcept() + "Monto: " + listaMovDinero.get(i).getAmount() + ", Usuario encargado: " + listaMovDinero.get(i).getUser() + ", Tipo de Movimiento: " + listaMovDinero.get(i).getTipo());
+		}
+		System.out.println("----------------------------------------------------------------------------------------------------------------------");
+
+		// Obtencion de un Movimiento de Dinero especifico en el ArrayList (Read)
+
+		System.out.println("OBTENCION DE UN MOVIMIENTO DE DINERO ESPECIFICO");
+		System.out.println();
+
+		System.out.println("Numero Id del movimiento en la lista: " + listaMovDinero.get(2).getId());
+		System.out.println("Informacion del movimiento");
+		System.out.println(listaMovDinero.get(2).getId() + ") " + "Concepto: " + listaMovDinero.get(2).getConcept() + "Monto: " + listaMovDinero.get(2).getAmount() + ", Usuario encargado: " + listaMovDinero.get(2).getUser() + ", Tipo de Movimiento: " + listaMovDinero.get(2).getTipo());
+		System.out.println("----------------------------------------------------------------------------------------------------------------------");
+
+
+		// Modificacion de los datos un empleado especifico en el ArrayList (Update)
+
+		System.out.println("MODIFICACION-ACTUALIZACION DE UN MOVIMIENTO ESPECIFICO");
+		System.out.println();
+
+		System.out.println("Numero Id del movimiento a modificar en la lista: " + listaMovDinero.get(2).getId());
+		System.out.println("Datos a modificar: Concepto, Monto, Usuario a cargo y tipo de movimiento");
+		listaMovDinero.get(2).setConcept("ganancias venta gaseosa");
+		listaMovDinero.get(2).setAmount(20000.0);
+		listaMovDinero.get(2).setUser("Natalia Torres");
+		listaMovDinero.get(2).setTipo(MovimientoDinero.typeTran.Ingreso);
+		System.out.println("Informacion actualizada del movimiento");
+		System.out.println(listaMovDinero.get(2).getId() + ") " + "Concepto: " + listaMovDinero.get(2).getConcept() + "Monto: " + listaMovDinero.get(2).getAmount() + ", Usuario encargado: " + listaEmpleado.get(2).getName() + ", Tipo de Movimiento: " + listaMovDinero.get(2).getTipo());
+		System.out.println("----------------------------------------------------------------------------------------------------------------------");
+
 
 	}
+
 }
+
+
+
